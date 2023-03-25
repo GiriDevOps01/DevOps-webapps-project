@@ -8,7 +8,7 @@ pipeline
 	stages{
 		stage('Code Checkout'){
 			steps{
-				git branch: 'main', url: 'https://github.com/Devops9AM/Docker-Web-App.git'
+				git branch: 'main', url: 'https://github.com/GiriDevOps01/DevOps-webapps-project.git'
 
 			}
 		}
@@ -38,7 +38,7 @@ pipeline
 	             }
 	   stage("Docker Image taging"){
 			steps{
-			sh 'docker image tag $JOB_NAME:v1.$BUILD_ID thanish/$JOB_NAME:v1.$BUILD_ID'
+			sh 'docker image tag $JOB_NAME:v1.$BUILD_ID giriprasadreddy/$JOB_NAME:v1.$BUILD_ID'
 			
 		}
 
@@ -47,8 +47,8 @@ pipeline
              steps{
 
                 withCredentials([string(credentialsId: 'DockerPassword', variable: 'DockerPassword')]) {
-                sh 'docker login -u thanish -p ${DockerPassword}'
-                sh 'docker image push thanish/$JOB_NAME:v1.$BUILD_ID'
+                sh 'docker login -u giriprasadreddy -p ${DockerPassword}'
+                sh 'docker image push giriprasadreddy/$JOB_NAME:v1.$BUILD_ID'
                 
               }
          }
