@@ -47,7 +47,7 @@ pipeline
              steps{
 
                 withCredentials([string(credentialsId: 'My-token', variable: 'dockerpassword')]) {
-                sh 'docker login -u giriprasadreddy -p ${DockerPassword}'
+                sh 'docker login -u giriprasadreddy -p ${dockerpassword}'
                 sh 'docker image push giriprasadreddy/$JOB_NAME:v1.$BUILD_ID'
                 
               }
