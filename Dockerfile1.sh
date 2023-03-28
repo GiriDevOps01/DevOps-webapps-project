@@ -1,5 +1,5 @@
 FROM centos
-MAINTAINER ravindra ravindra.devops@gmail.com
+MAINTAINER kgiriprasadreddy22@gmail.com
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 RUN yum install -y java
@@ -12,11 +12,11 @@ RUN tar -xvzf apache*.tar.gz
 RUN mv apache-tomcat-9.0.73/* /opt/Tomcat
 RUN java -version
 WORKDIR /opt/Tomcat/webapps
-COPY cloudgen-1.war /opt/Tomcat/webapps/
+COPY Giriprasad-1.war /opt/Tomcat/webapps/
 EXPOSE 8080
 CMD ["/opt/Tomcat/bin/startup.sh", "run"]
 #FROM centos
-#MAINTAINER ravindra ravindra.devops@gmail.com
+#MAINTAINER kgiriprasadreddy22@gmail.com
 #RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 #RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 #RUN mkdir /opt/Tomcat
@@ -29,6 +29,6 @@ CMD ["/opt/Tomcat/bin/startup.sh", "run"]
 ##RUN yum install vim -y
 #RUN java -version
 #WORKDIR /opt/Tomcat/webapps
-#COPY cloudgen.war /opt/Tomcat/webapps/
+#COPY Giriprasad.war /opt/Tomcat/webapps/
 #EXPOSE 8080
 #CMD ["/opt/Tomcat/bin/startup.sh", "run"]
